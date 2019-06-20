@@ -1,0 +1,8 @@
+1.在事件处理函数中，this指向事件源
+
+1.this的值永远指向函数的调用者
+2.在严格模式下，匿名函数(function(){}) var fun1 = function(){
+    console.log(this)
+}   fun1();
+ 的this指向undefind;
+ 

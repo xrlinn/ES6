@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是帅哥1</li>
+        <li>我是帅哥2</li>
+        <li>我是帅哥3</li>
+        <li>我是帅哥4</li>
+        <li>我是帅哥5</li>
+    </ul>
+</body>
+<script>
+    // const arr = [2,3,5];
+    // console.log(...arr);
+    // 1.代替Array.from();[...xxx]
+    // 2.复制一个数组(浅拷贝)
+    // 3.连接一个数组
+    var arr = [1,2,3];
+    var arr1 = [4,5,6];
+    arr2 = [...arr,...arr1]
+    console.log(arr2);
+    
+
+    // var lis = [...document.getElementsByTagName("li")] ;
+    // console.log(lis);
+    
+    // lis.map(item => {
+    //     console.log(item.innerText)
+    // })
+
+    // const arr = [2,3,5];
+    // var arr1 = [...arr];//浅拷贝
+    // arr[1] = 998;
+    // console.log(arr,"arr");
+    // console.log(arr1,"arr1");//[2,3,5] 
+
+    var obj = {
+        name:"json",
+        sex:"男"
+    }
+    var obj1 = {
+        desc:"歌手",
+        ...obj,
+    }
+    console.log(obj1);
+    
+
+</script>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // 1.find();查找数组某个元素
+    // 2.findIndex();查找某个元素的索引值
+    // 3.some();数组中是否有元素符合条件
+    // 4.every();数组中是否所有的元素都符合条件
+
+    var arr = [
+    {
+        name: "Tom",
+        age: 18,
+        desc:"歌唱家"
+    },
+    {
+        name: "Jerry",
+        age: 19,
+        desc: "网红"
+    },
+    {
+        name: "Alex",
+        age: 28,
+        desc:"帅哥"
+    }
+]
+    // es5 找到是Jerry的项目
+    // let findItem;
+    // arr.forEach(item => {
+    //     if(item.name == "Jerry"){
+    //         findItem = item;
+    //     }
+    // })
+    // console.log(findItem)
+
+    // let finditem = arr.find(function(item){
+    //     return item.name == "Jerry";
+    // })
+    // console.log(finditem)
+
+    // es5 查找索引值
+    //   let findindex;
+    // arr.forEach((item,index) => {
+    //     if(item.name == "Jerry"){
+    //         findindex = index;
+    //     }
+    // })
+    // console.log(findindex)
+
+    // console.log(arr.findIndex(item => item.name == "Alex"))
+
+    // console.log(arr.some(item => item.age > 20));
+    console.log(arr.every(item => item.age >= 18 ))
+    
+
+
+
+    
+
+
+
+</script>
+</html>

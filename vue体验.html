@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="input" v-model = "text">
+        <h2 id="title" v-text="text"></h2>
+    </div>
+</body>
+<script src="./vue.js"></script>
+<!-- <script>
+    var input = document.getElementById("input");
+    var title = document.getElementById("title");
+    var obj = {
+        text:"一段文字"
+    }
+
+    // input.value = obj.text;
+    // title.innerText = obj.text;
+    // Object.defineProperty(obj,"text",{
+    //     set:function(value){
+    //         input.value = value;
+    //         title.innerText = value
+    //     },
+    //     get:function(){
+    //         return input.value
+    //     }
+    // })
+    // input.oninput = function(){
+    //     obj.text = this.value
+    // }
+
+</script> -->
+<!-- <script>
+    var vm = new Vue({
+        el:"#container",
+        data:{
+            text:"一段文字"
+        }
+    })
+</script> -->
+<script>
+    var input = document.getElementById("input");
+    var title = document.getElementById("title");
+    var obj = {
+        text:"一段文字"
+    }
+    var proxy = new Proxy(obj,{
+        get(target,property,receiver){
+            return target[property]
+        },
+        set(target,property,value,receiver){
+            target[property] = value;
+            input.value = value;
+            title.innerText = value
+        }
+    })
+    input.oninput = function(){
+        proxy.text = this.value
+    }
+
+</script>
+</html>

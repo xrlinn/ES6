@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var list1 = [
+        "龙族",
+        "一千零一夜"
+    ]
+    var author = [
+        "江南",
+        "一千零一夜的作者"
+    ]
+    var articles = [
+        "龙族的内容",
+        "一千零一夜的内容"
+    ]
+
+    // setTimeout(() => {
+    //     console.log(list1)
+    //     setTimeout(() => {
+    //         console.log(author)
+    //         setTimeout(() => {
+    //             console.log(articles);
+                
+    //         },3000)
+    //     },3000)
+    // },3000)
+
+    var step1 = new Promise(function(resolve,reject){
+        setTimeout(() => {
+            resolve(list1);   
+        },3000)
+    })
+    step1.then(function(result){
+        console.log(result);
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(author);   
+            },3000)
+        })
+    }).then(result => {
+        console.log(result);
+        return new Promise(resolve => {
+            setTimeout(() => {
+                resolve(articles);   
+            },3000)
+        })
+    }).then(result => {
+        console.log(result)
+    })
+
+
+
+    
+        
+    
+
+</script>
+</html>

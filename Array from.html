@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>我是内容1</li>
+        <li>我是内容2</li>
+        <li>我是内容3</li>
+        <li>我是内容4</li>
+        <li>我是内容5</li>
+    </ul>
+    
+</body>
+<script>
+    var lis = document.querySelectorAll("li")
+    var ul = document.querySelector("ul")
+    // lis.map(item => {
+    //     console.log(item)
+    // })
+    // map方法不能实现,类数组要转成数组才能实现，如下
+    // var arr = [];
+    // for(item of lis){
+    //     arr.push(item)
+    // }
+    var arr = Array.from(lis)
+    // console.log(arr)
+    // arr.map(item => {
+    //     console.log(item)
+    // })
+    arr = arr.sort((prev,curr,index) => {
+        var currText = curr.innerText;
+        var prevText = prev.innerText;
+        return( currText[currText.length - 1]
+         - prevText[prevText.length - 1]
+        )  
+    });
+    arr.map(item => {
+        ul.appendChild(item);   
+    });
+    console.log(arr); 
+
+
+
+
+    // lis.forEach(item=>{
+    //     console.log(item)
+    // })
+
+</script>
+</html>

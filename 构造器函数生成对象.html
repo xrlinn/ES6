@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function MakePerson(name,sex,height){
+        this.name = name;
+        this.sex = sex;
+        this.height = height;
+    }
+    console.dir(MakePerson);
+    MakePerson.prototype.nation = "中国人"
+
+    var person1 = new MakePerson("张飒","男","185");
+    var person2 = new MakePerson("王华","女","165");
+    console.log(person1.name);
+    console.log(person2.sex);
+    console.log(person1.nation) ;
+    
+    // 1.生产出一个新的对象
+    // 2.将构造器函数内的this指向新生成的对象。
+    // 3.将新生成的对象通过 proto 指向构造器函数的原型
+    // 4.返回新生成的对象
+
+</script>
+</html>

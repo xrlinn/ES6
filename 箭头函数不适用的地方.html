@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">按钮</button>
+</body>
+<script>
+    // var btn = document.querySelector("#btn");
+    // btn.onclick = () => {
+    //     console.log(this);
+    // }
+    // 1.不适用于事件处理函数
+
+    // let MakePerson = (name,sex,height) => {
+    //     this.name = name;
+    //     this.sex = sex;
+    //     this.height = height;
+    // }
+
+    // var person1 = new MakePerson("张飒","男","185");
+    // var person2 = new MakePerson("王华","女","165");
+    // console.log(person1.name);
+    // console.log(person2.sex);
+        // 2.不能用在构造器函数中
+
+    // function sum(){
+    //     let end = 0;
+    //     for(let i = 0; i<arguments.length; i++){
+    //         end += arguments[i]
+    //     } 
+    //     return end;
+    // }
+    // console.log(sum(2,8,7))
+
+    let sum = (...arg) => {
+        let end = 0;
+        for(let i = 0; i<arg.length; i++){
+            end += arg[i]
+        } 
+        return end;
+    }
+    console.log(sum(2,8,8,7))
+</script>
+</html>

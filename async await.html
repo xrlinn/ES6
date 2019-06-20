@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script src="./jquery.js"></script>
+<script>
+    // async function doSomeThing(){
+    //     await console.log(1);
+    //     await console.log(2);
+    //     await console.log(3);
+    // }
+    // doSomeThing().then(() => {
+    //     console.log("前面所有步骤都完成了");
+    // })
+
+    // var step1 = new Promise((resolve) => {//获取图书id
+    //     $.ajax({
+
+    //         url:"https://m.yaojunrong.com/book",
+    //         success(res){
+    //             let book = res.data[154];
+    //             let bookid = book._id;
+    //             console.log(book);
+    //             resolve(bookid )
+    //         }
+    //     })
+    // })
+    // let step2 = step1.then(bookid => {//获取所有目录id
+    //     return new Promise((resolve) => {
+    //         $.ajax({
+    //             url:`https://m.yaojunrong.com/titles/${bookid}`,
+    //             success(res){
+    //                 // console.log(res);
+    //                 let title = res.data[14];
+    //                 let titleid = title._id;
+    //                 // console.log(title);
+    //                 resolve(titleid);
+    //             }
+    //         }) 
+    //     })
+    // })
+    // let step3 = step2.then(titleid => {
+    //     return new Promise(resolve => {
+    //         $.ajax({
+    //                 url:`https://m.yaojunrong.com/article/${titleid}`,
+    //                 success(res){
+    //                     // console.log(res);
+    //                     // console.log(res.data.article.content); 
+    //                     resolve(res.data.article.content)                    
+    //                 }
+    //             })
+    //     })
+    // })
+    // step3.then(content => {
+    //     console.log(content);  
+    // })
+
+    async function getBook(){
+        let bookid = await new Promise((resolve) => {//获取图书id
+            $.ajax({
+                url:"https://m.yaojunrong.com/book",
+                success(res){
+                    let book = res.data[154];
+                    let bookid = book._id;
+                    console.log(book);
+                    resolve(bookid )
+                }
+            })
+        })
+
+        let titleid = await new Promise((resolve) => {
+            $.ajax({
+                url:`https://m.yaojunrong.com/titles/${bookid}`,
+                success(res){
+                    // console.log(res);
+                    let title = res.data[14];
+                    let titleid = title._id;
+                    // console.log(title);
+                    resolve(titleid);
+                }
+            }) 
+        })
+
+        let content = await new Promise(resolve => {
+            $.ajax({
+                url:`https://m.yaojunrong.com/article/${titleid}`,
+                success(res){
+                    // console.log(res);
+                    // console.log(res.data.article.content); 
+                    resolve(res.data.article.content)                    
+                }
+            })
+        })
+        console.log(content)
+    }
+    getBook()
+
+    //任何一个await语句后面的 Promise 对象变为reject状态，
+    // 那么整个async函数都会中断执行。
+    // 有时，我们希望即使前一个异步操作失败，也不要中断后面的异步操作。
+    // 这时可以将第一个await放在try...catch结构里面，这样不管这个异步
+    // 操作是否成功，第二个await都会执行。
+    // 另一种方法是await后面的 Promise 对象再跟一个catch方法，处理前面可能出现的错误。
+
+</script>
+</html>

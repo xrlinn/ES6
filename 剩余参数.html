@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        我期望利用一个函数去计算输入固定汇率之后。对应汇率之后所有的换算金额。
+</body>
+<script>
+    // let sum = (...arg) => {
+    //     var result = 0;
+    //     for(var i =0; i < arg.length; i++ ){
+    //         result += arg[i];
+    //     }
+    //     return result;
+    // }
+    // console.log(sum(2,8,9));
+
+    function covert(rate,...arg){
+        return arg.map(item => item*rate)
+    }
+    console.log(covert(0.8, 10, 20, 30) );
+    
+    
+    
+
+
+</script>
+</html>

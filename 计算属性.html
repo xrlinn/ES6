@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">添加用户</button>
+</body>
+<script>
+    // var person = {
+    //     // "user-1":1,
+    //     // "user-2":2
+    // }
+    // var btn = document.getElementById("btn");
+    // var index = 1; 
+    // btn.onclick = function(){
+    //     person[`user-${index}`]=index;
+    //     index++;
+    //     console.log(person);
+        
+    // }
+
+    // var obj = {
+    //     [`user-${index}`]:index++,
+    //     [`user-${index}`]:index++,
+    //     [`user-${index}`]:index++,
+    //     [`user-${index}`]:index++,
+    // }
+    // console.log(obj);
+
+    let keys = ["name", "age"];
+    let values = ["Tom", "18"];
+    var obj = {
+        [keys[0]]:values[1],
+        [keys[1]]:values[0]
+    }
+    var obj1 = {
+        [keys.pop()]:values.pop(),
+        [keys.pop()]:values.pop(),
+    }
+    console.log(obj);
+    console.log(obj1)
+    
+    
+
+
+</script>
+</html>

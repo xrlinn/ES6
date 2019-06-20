@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .heigh{
+        font-size: 40px;
+        color:red；       
+    }
+</style>
+<body>
+    <div id="box"></div>
+    
+</body>
+<script>
+    let box = document.querySelector("#box");
+    let str1 = "我是";
+    let str2 = "中国人";
+
+    function hilight(string,...values){
+        let myValues = values.map(item=>`<span class="heigh">${item}</span>`)
+        // console.log(string);
+        // console.log(values);
+        console.log(myValues)
+        return string.reduce((prev,curr,index)=>{
+            console.log(index);
+            return `${prev}${curr}${myValues[index]||''}`
+
+        },"")
+    }
+
+    let str3 = str1 + str2 + ",我们中国人很聪明"
+    let str4 = hilight`${str1}${str2},我们中国人很聪明`
+    console.log(str4)
+    box.innerHTML = str4;
+
+</script>
+</html>

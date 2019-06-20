@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //我们班级当中，就有两个同名的孩子。那么，我们存储到对象当中，肯定会被覆盖掉一个值。那么，
+    //就可以使用我们的Symbol了
+    const students = {
+        [Symbol('Tina')]: {sex: "girl", age: 18},
+        [Symbol('Tina')]: {sex: "boy", age: 19}
+    }
+
+    console.log(students)
+    //ES6为我们提供了一个方法去获取Symbol的值
+    const keys = Object.getOwnPropertySymbols(students);
+    console.log(keys);
+    
+
+
+</script>
+</html>

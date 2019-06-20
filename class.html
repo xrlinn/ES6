@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //es5的继承
+    // function MakeChinese(name,id){
+    //     this.name = name;
+    //     this.id = id;
+    // }
+    // MakeChinese.prototype.Nation = "中国人";
+    // function MakeTeacher(name,id){
+    //     MakeChinese.call(this,name,id)
+    // }
+    // MakeTeacher.prototype.Nation = MakeChinese.prototype.Nation;
+    // console.log( new MakeTeacher("姚老师","431223199921353"));
+    
+    class MakeChinese {
+        constructor(name,id){
+            this.name = name;
+            this.id = id;
+        }
+    }
+    MakeChinese.prototype.Nation = "中国人";
+    let person1 = new MakeChinese("kobe","431233546135");
+    console.log(person1);
+
+    class MakeTeacher extends MakeChinese {
+        constructor(name,id){
+            super(name,id)  //super 能继承原生构造器，ARRAY，比call强
+        }
+    }
+    let teacher1 = new MakeTeacher("PDD老师","4332155664");
+    console.log(teacher1)//
+    
+
+
+</script>
+</html>

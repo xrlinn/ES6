@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // yield关键字的作用
+    // 1.中断程序的运行
+    // 2.传参的作用
+    // 3.return的作用
+
+    function* dosomething(){
+        console.log(1);
+        let one = yield "return1";
+        yield console.log(one,"one");
+        yield console.log(3);
+        yield console.log(4);  
+    }
+    var iterator = dosomething();
+    for(let value of iterator){
+        console.log(value)
+    }
+    // var first = iterator.next();
+    // var second= iterator.next();
+    // var third = iterator.next();
+    // console.log(first);
+    // console.log(second);
+    // console.log(third);
+    
+    
+    
+
+</script>
+</html>
